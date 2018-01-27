@@ -2,23 +2,37 @@
 #define ANIMAL_H
 
 #include "Object.h"
-class Animal :
+
+const int animal_lifetime = 10;
+const int animal_reproduction_ready_time = 0;
+
+class Animal : 
 	public Object
-{
-private:
-	int hunger;//is it really int value?
+{	
+protected:
+	int age;
+	int x_coord;
+	int y_coord;
+	int time_since_the_last_reproduction;
+	int hunger;
 public:
-	Animal();
+	Animal(int animal_lifetime, int x, int y, int animal_reproduction_ready_time);
 	
 	//getters
+	
 	int get_hunger();
+	int get_age();
+	int get_x_coord();
+	int get_y_coord();
+	int get_time_since_the_last_reproduction();
+	
 
 	//setters
-	void set_hunger(int value);
+	//void set_hunger(int value);
 
 	//functions
 	virtual void live() = 0;
-	virtual void move() = 0;// we can descript this function here with parametr of view 1/2 for rab/fox accordingly
+	void move(int animal);// 1/2 for rabbit/foxes
 	~Animal();
 };
 

@@ -3,16 +3,12 @@
 
 #include "Animal.h"
 
-class Fox :
-	public Animal
+class Fox : public Animal
 {
 public:
-	Fox();
-
+	Fox(int animal_lifetime, int x, int y, int animal_reproduction_ready_time);
 	//functions
 	void live() override;
-	void move() override;//think about move function in Animal
-
 	~Fox();
 };
 

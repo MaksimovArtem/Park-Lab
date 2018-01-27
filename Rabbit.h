@@ -2,16 +2,14 @@
 #define RABBIT_H
 
 #include "Animal.h"
+
 class Rabbit :
 	public Animal
 {
 public:
-	Rabbit();
-
+	Rabbit(int animal_lifetime, int x, int y, int animal_reproduction_ready_time);
 	//functions
 	void live() override;
-	void move() override;//think about move function in Animal
-
 	~Rabbit();
 };
 
