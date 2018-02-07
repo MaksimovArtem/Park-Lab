@@ -1,31 +1,24 @@
 #ifndef PARK_H
 #define PARK_H
 
-#include "Object.h" //because this class rules
-
+#include <vector>
+#include "Object.h"
+#include "Animal.h"
 #include "Grass.h"
 #include "Rabbit.h"
 #include "Fox.h"
 
-#include <vector>
-
-class Park
-{
+class Park {
 private:
-	int field[20][20];//matrix
-	std::vector<Grass*> grass_list;
-	std::vector<Rabbit*> rabbit_list;
-	std::vector<Fox*> fox_list;
+	int **field;
+
+	std::vector<Object*> obj_list;
 
 public:
-	Park();
-
-	void changeMatrix(int start_x,int start_y,int start_value, int end_x,int end_y, int end_value);//we have to overload this func?!
-	~Park();
+	void Print_park();
+	void generate_park();
+	void exist();
 };
 
-
-
-
-#endif // !PARK_H
+#endif
 

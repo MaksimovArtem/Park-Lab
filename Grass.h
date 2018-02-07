@@ -2,29 +2,26 @@
 #define GRASS_H
 
 #include "Object.h"
-extern int grass_lifetime = 10;
-extern int grass_reproduction_ready_time = 0;
-class Grass :
-	public Object
-{
+
+class Grass : public Object {
 private:
 	int age;
 	int x_coord;
 	int y_coord;
 	int time_since_the_last_reproduction;
 public:
-	Grass(int grass_lifetime, int x, int y, int grass_reproduction_ready_time);
+	Grass(int x, int y);
 
-	int get_age();
-	int get_x_coord();
-	int get_y_coord();
-	int get_time_since_the_last_reproduction();
-	//functions
+	int get_age() override;
+	int get_x_coord() override;
+	int get_y_coord() override;
+	void set_x_coord(int a) override {x_coord = a;};
+	void set_y_coord(int b) override {y_coord = b;};
+	int get_time_since_the_last_reproduction() override;
 
-	void live() override;
-	~Grass();
+	Object* live(int **field) override;
+	virtual ~Grass();
 };
 
-
-#endif // !GRASS_H
+#endif
 

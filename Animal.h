@@ -3,37 +3,19 @@
 
 #include "Object.h"
 
-const int animal_lifetime = 10;
-const int animal_reproduction_ready_time = 0;
-
-class Animal : 
-	public Object
-{	
-protected:
-	int age;
-	int x_coord;
-	int y_coord;
-	int time_since_the_last_reproduction;
-	int hunger;
+class Animal : public Object {
 public:
-	Animal(int animal_lifetime, int x, int y, int animal_reproduction_ready_time);
-	
-	//getters
-	
-	int get_hunger();
-	int get_age();
-	int get_x_coord();
-	int get_y_coord();
-	int get_time_since_the_last_reproduction();
-	
+	virtual int get_hunger() = 0;
+	virtual int get_age() = 0;
+	virtual int get_x_coord() = 0;
+	virtual int get_y_coord() = 0;
+	virtual void set_x_coord(int a) = 0;
+	virtual void set_y_coord(int b) = 0;
+	virtual int get_time_since_the_last_reproduction() = 0;
 
-	//setters
-	//void set_hunger(int value);
+	virtual Object* live(int **field) = 0;
 
-	//functions
-	virtual void live() = 0;
-	void move(int animal);// 1/2 for rabbit/foxes
-	~Animal();
+	virtual ~Animal() {};
 };
 
-#endif// !ANIMAL_H
+#endif
